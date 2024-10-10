@@ -1,4 +1,4 @@
-Byname: Generate Datas
+name: Generate Datas # Optional, adds a name to the workflow
 
 on:
   schedule: # execute every 12 hours
@@ -23,3 +23,4 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
