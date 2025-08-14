@@ -23,4 +23,4 @@
 
 ## 📫 Contato
 - LinkedIn: [marlonbetin](https://www.linkedin.com/in/marlonbetin/)
-- Email: [betinmarlon@gmail.com]
+- Email: betinmarlon@gmail.com
