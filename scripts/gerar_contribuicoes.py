@@ -1,8 +1,9 @@
-"""Gera assets/contribuicoes.svg com o calendário de contribuições do perfil.
+"""Gera o calendário de contribuições do perfil em português, inglês e alemão.
 
-Usa só a biblioteca padrão. Lê o token de GITHUB_TOKEN (no GitHub Actions),
-GH_TOKEN ou GITHUB_PAT. Em caso de erro, sai com código 1 e não toca no SVG
-existente, para o README continuar mostrando a última versão boa.
+Saída: assets/contribuicoes.svg (pt), assets/contribuicoes.en.svg e assets/contribuicoes.de.svg.
+Usa só a biblioteca padrão. Lê o token de GITHUB_TOKEN (no GitHub Actions), GH_TOKEN ou
+GITHUB_PAT. Em caso de erro, sai com código 1 e não toca nos SVGs existentes, para o README
+continuar mostrando a última versão boa.
 
 Uso local:  GITHUB_PAT=... python scripts/gerar_contribuicoes.py
 Sem acesso direto à API: python scripts/gerar_contribuicoes.py --json resposta.json
@@ -19,7 +20,7 @@ from datetime import date
 from pathlib import Path
 
 USUARIO = os.environ.get("PERFIL_USUARIO", "CodeByMarlon")
-SAIDA = Path(__file__).resolve().parent.parent / "assets" / "contribuicoes.svg"
+ASSETS = Path(__file__).resolve().parent.parent / "assets"
 
 CONSULTA = """
 query($login: String!) {
@@ -41,8 +42,41 @@ CORES = {
     "THIRD_QUARTILE": "#06B6D4",
     "FOURTH_QUARTILE": "#67E8F9",
 }
-MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]
 CELULA, PASSO = 17, 21
+MESES_EN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+TEXTOS = {
+    "pt": dict(arquivo="contribuicoes.svg", milhar=".",
+               titulo="{total} contribuições no último ano",
+               sub="inclui contribuições em repositórios privados · dados até {data}",
+               desc="Calendário de contribuições de {usuario}: {total} no último ano, {ativos} dias ativos, {atual} semanas "
+                    "seguidas com contribuição (recorde de {recorde_sem}) e recorde de {recorde_dia} em um dia. Inclui "
+                    "repositórios privados. Dados até {data}.",
+               recorde="recorde em um dia", ativos="dias ativos", semanas="semanas seguidas",
+               rodape="gerado todo dia pelo GitHub Actions com a API GraphQL", menos="menos", mais="mais",
+               meses=["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"],
+               dias=("seg", "qua", "sex"), data=lambda d: f"{d:%d/%m/%Y}"),
+    "en": dict(arquivo="contribuicoes.en.svg", milhar=",",
+               titulo="{total} contributions in the last year",
+               sub="includes contributions to private repositories · data through {data}",
+               desc="Contribution calendar for {usuario}: {total} in the last year, {ativos} active days, {atual} weeks "
+                    "in a row with contributions (record: {recorde_sem}) and a best day of {recorde_dia}. Includes "
+                    "private repositories. Data through {data}.",
+               recorde="best single day", ativos="active days", semanas="weeks in a row",
+               rodape="generated daily by GitHub Actions with the GraphQL API", menos="less", mais="more",
+               meses=MESES_EN, dias=("Mon", "Wed", "Fri"),
+               data=lambda d: f"{MESES_EN[d.month - 1]} {d.day}, {d.year}"),
+    "de": dict(arquivo="contribuicoes.de.svg", milhar=".",
+               titulo="{total} Beiträge im letzten Jahr",
+               sub="inklusive Beiträge in privaten Repositories · Stand: {data}",
+               desc="Beitragskalender von {usuario}: {total} im letzten Jahr, {ativos} aktive Tage, {atual} Wochen in "
+                    "Folge mit Beiträgen (Rekord: {recorde_sem}) und bis zu {recorde_dia} an einem Tag. Inklusive "
+                    "privater Repositories. Stand: {data}.",
+               recorde="Rekord an einem Tag", ativos="aktive Tage", semanas="Wochen in Folge",
+               rodape="täglich per GitHub Actions über die GraphQL-API erstellt", menos="weniger", mais="mehr",
+               meses=["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
+               dias=("Mo", "Mi", "Fr"), data=lambda d: f"{d:%d.%m.%Y}"),
+}
 
 
 def buscar_calendario(token: str) -> dict:
@@ -60,8 +94,8 @@ def buscar_calendario(token: str) -> dict:
     return dados["data"]["user"]["contributionsCollection"]["contributionCalendar"]
 
 
-def milhar(n: int) -> str:
-    return f"{n:,}".replace(",", ".")
+def milhar(n: int, separador: str) -> str:
+    return f"{n:,}".replace(",", separador)
 
 
 def sequencia_semanal(semanas: list[list[dict]]) -> tuple[int, int]:
@@ -80,14 +114,14 @@ def sequencia_semanal(semanas: list[list[dict]]) -> tuple[int, int]:
     return atual, recorde
 
 
-def montar_svg(cal: dict) -> str:
+def montar_svg(cal: dict, t: dict) -> str:
     semanas = [s["contributionDays"] for s in cal["weeks"]]
     dias = [d for s in semanas for d in s]
-    total = cal["totalContributions"]
+    total = milhar(cal["totalContributions"], t["milhar"])
     ativos = sum(1 for d in dias if d["contributionCount"])
-    recorde_dia = max(dias, key=lambda d: d["contributionCount"])
+    recorde_dia = max(d["contributionCount"] for d in dias)
     atual, recorde_sem = sequencia_semanal(semanas)
-    ultimo = date.fromisoformat(dias[-1]["date"])
+    data = t["data"](date.fromisoformat(dias[-1]["date"]))
 
     n = len(semanas)
     largura_grade = n * PASSO - 4
@@ -97,11 +131,9 @@ def montar_svg(cal: dict) -> str:
 
     s = [f'<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="{altura}" viewBox="0 0 1280 {altura}" '
          'role="img" aria-labelledby="titulo desc">',
-         f'  <title id="titulo">{milhar(total)} contribuições no GitHub no último ano</title>',
-         f'  <desc id="desc">Calendário de contribuições de {USUARIO}: {milhar(total)} no último ano, '
-         f'{ativos} dias ativos, {atual} semanas seguidas com contribuição (recorde de {recorde_sem}) e '
-         f'recorde de {recorde_dia["contributionCount"]} em um dia. Inclui repositórios privados. '
-         f'Dados até {ultimo:%d/%m/%Y}.</desc>',
+         f'  <title id="titulo">{t["titulo"].format(total=total)}</title>',
+         '  <desc id="desc">' + t["desc"].format(usuario=USUARIO, total=total, ativos=ativos, atual=atual,
+                                                recorde_sem=recorde_sem, recorde_dia=recorde_dia, data=data) + '</desc>',
          '  <style>',
          "    .sans{font-family:'Segoe UI',Inter,'Helvetica Neue',Arial,sans-serif}",
          '    .sem{animation:ent .6s ease-out both}',
@@ -110,13 +142,11 @@ def montar_svg(cal: dict) -> str:
          '  </style>',
          f'  <rect x="1" y="1" width="1278" height="{altura - 2}" rx="20" fill="#0B1222" stroke="#1E293B" stroke-width="2"/>',
          '  <g class="sans">',
-         f'    <text x="40" y="54" font-size="26" font-weight="700" fill="#F1F5F9">{milhar(total)} contribuições no último ano</text>',
-         '    <text x="40" y="84" font-size="16" fill="#64748B">inclui contribuições em repositórios privados'
-         f' · dados até {ultimo:%d/%m/%Y}</text>']
+         f'    <text x="40" y="54" font-size="26" font-weight="700" fill="#F1F5F9">{t["titulo"].format(total=total)}</text>',
+         f'    <text x="40" y="84" font-size="16" fill="#64748B">{t["sub"].format(data=data)}</text>']
 
-    destaques = [(905, str(recorde_dia["contributionCount"]), "recorde em um dia", "#A78BFA"),
-                 (1075, str(ativos), "dias ativos", "#34D399"),
-                 (1240, str(atual), "semanas seguidas", "#22D3EE")]
+    destaques = [(905, recorde_dia, t["recorde"], "#A78BFA"), (1075, ativos, t["ativos"], "#34D399"),
+                 (1240, atual, t["semanas"], "#22D3EE")]
     for x, valor, rotulo, cor in destaques:
         s += [f'    <text x="{x}" y="52" font-size="30" font-weight="800" fill="{cor}" text-anchor="end">{valor}</text>',
               f'    <text x="{x}" y="76" font-size="15" fill="#94A3B8" text-anchor="end">{rotulo}</text>']
@@ -128,9 +158,9 @@ def montar_svg(cal: dict) -> str:
         if (anterior is None or primeiro.month != anterior.month) and i - ultimo_rotulo >= 3:
             if i == 0 and primeiro.day > 7:
                 continue
-            s.append(f'    <text x="{x0 + i * PASSO}" y="{y0 - 10}" font-size="15" fill="#64748B">{MESES[primeiro.month - 1]}</text>')
+            s.append(f'    <text x="{x0 + i * PASSO}" y="{y0 - 10}" font-size="15" fill="#64748B">{t["meses"][primeiro.month - 1]}</text>')
             ultimo_rotulo = i
-    for dia_semana, nome in ((1, "seg"), (3, "qua"), (5, "sex")):
+    for dia_semana, nome in zip((1, 3, 5), t["dias"]):
         s.append(f'    <text x="{x0 - 10}" y="{y0 + dia_semana * PASSO + 13}" font-size="14" fill="#64748B" '
                  f'text-anchor="end">{nome}</text>')
     s.append('  </g>')
@@ -153,11 +183,11 @@ def montar_svg(cal: dict) -> str:
     fim = x0 + largura_grade
     base = y0 + 7 * PASSO + 26
     s += ['  <g class="sans" font-size="14" fill="#64748B">',
-          f'    <text x="{x0}" y="{base}">gerado todo dia pelo GitHub Actions com a API GraphQL</text>',
-          f'    <text x="{fim - 5 * 19 - 46}" y="{base}" text-anchor="end">menos</text>']
+          f'    <text x="{x0}" y="{base}">{t["rodape"]}</text>',
+          f'    <text x="{fim - 5 * 19 - 46}" y="{base}" text-anchor="end">{t["menos"]}</text>']
     for j, cor in enumerate(CORES.values()):
         s.append(f'    <rect x="{fim - 40 - (5 - j) * 19}" y="{base - 12}" width="14" height="14" rx="3" fill="{cor}"/>')
-    s += [f'    <text x="{fim - 34}" y="{base}">mais</text>', '  </g>', '</svg>', '']
+    s += [f'    <text x="{fim - 34}" y="{base}">{t["mais"]}</text>', '  </g>', '</svg>', '']
     return "\n".join(s)
 
 
@@ -175,9 +205,10 @@ def main() -> int:
     except (urllib.error.URLError, RuntimeError, KeyError, TypeError, OSError, ValueError) as erro:
         print(f"Falha ao ler as contribuições: {erro}", file=sys.stderr)
         return 1
-    SAIDA.parent.mkdir(parents=True, exist_ok=True)
-    SAIDA.write_text(montar_svg(calendario), encoding="utf-8", newline="\n")
-    print(f"{SAIDA.name}: {milhar(calendario['totalContributions'])} contribuições")
+    ASSETS.mkdir(parents=True, exist_ok=True)
+    for t in TEXTOS.values():
+        (ASSETS / t["arquivo"]).write_text(montar_svg(calendario, t), encoding="utf-8", newline="\n")
+    print(f"{calendario['totalContributions']} contribuições -> {', '.join(t['arquivo'] for t in TEXTOS.values())}")
     return 0
 
 

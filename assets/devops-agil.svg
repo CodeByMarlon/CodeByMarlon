@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="480" viewBox="0 0 1280 480" role="img" aria-labelledby="titulo desc">
   <title id="titulo">DevOps, CI/CD e métodos ágeis</title>
-  <desc id="desc">Pipeline de entrega: commit no padrão convencional, pull request com revisão de código, CI com testes e auditoria, homologação em staging, deploy automatizado em produção e operação com saúde, logs e backup. Práticas de XP: integração contínua, testes automatizados, refatoração, entregas pequenas e padrões de código. Scrum: backlog priorizado, ciclos curtos, revisão das entregas e retrospectivas.</desc>
+  <desc id="desc">Pipeline de entrega: commit no padrão convencional, pull request com revisão de código, CI com testes e auditoria, homologação em staging, deploy automatizado em produção e operação com saúde, logs e backup. Práticas de XP e ciclo do Scrum.</desc>
   <style>
     .sans{font-family:'Segoe UI',Inter,'Helvetica Neue',Arial,sans-serif}
     .mono{font-family:'JetBrains Mono','Cascadia Code',Consolas,'SFMono-Regular',Menlo,monospace}

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="titulo desc">
   <title id="titulo">Como eu trabalho com IA: Claude Code orquestrando subagentes e servidores MCP</title>
-  <desc id="desc">No centro, o Claude Code como orquestrador, com subagentes, skills, hooks e memória. À esquerda, as IDEs com agentes: TRAE (modo SOLO), Google Antigravity e VS Code. À direita, os servidores MCP: GitHub, Chrome DevTools, Obsidian, Graphify, Figma, Linear e REA para engenharia reversa e descompilação. Embaixo, o fluxo de entrega: especificação, plano, subagentes em paralelo, revisão em duas etapas, testes com CI e pull request.</desc>
+  <desc id="desc">No centro, o Claude Code como orquestrador, com subagentes, skills, hooks e memória. À esquerda, as IDEs com agentes: TRAE (modo SOLO), Google Antigravity e VS Code. À direita, os servidores MCP: GitHub, Chrome DevTools, Obsidian, Graphify, Figma, Linear e REA. Embaixo, o fluxo de entrega.</desc>
   <style>
     .sans{font-family:'Segoe UI',Inter,'Helvetica Neue',Arial,sans-serif}
     .mono{font-family:'JetBrains Mono','Cascadia Code',Consolas,'SFMono-Regular',Menlo,monospace}
@@ -15,21 +15,13 @@
     @media (prefers-reduced-motion:reduce){.ent{animation:none}.mov{display:none}}
   </style>
   <defs>
-    <radialGradient id="nucleo" cx="50%" cy="40%" r="65%">
-      <stop offset="0" stop-color="#0E7490"/>
-      <stop offset="1" stop-color="#0B1222"/>
-    </radialGradient>
-    <radialGradient id="aura" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#22D3EE" stop-opacity=".22"/>
-      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
-    </radialGradient>
+    <radialGradient id="nucleo" cx="50%" cy="40%" r="65%"><stop offset="0" stop-color="#0E7490"/><stop offset="1" stop-color="#0B1222"/></radialGradient>
+    <radialGradient id="aura" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#22D3EE" stop-opacity=".22"/><stop offset="1" stop-color="#22D3EE" stop-opacity="0"/></radialGradient>
     <filter id="brilho" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="2.6"/></filter>
     <g id="pacote"><circle r="7" fill-opacity=".5" filter="url(#brilho)"/><circle r="3.2"/></g>
-    <!-- IDEs -> núcleo -->
     <path id="l0" d="M360 161C460 161 460 235 558 235"/>
     <path id="l1" d="M360 235H558"/>
     <path id="l2" d="M360 309C460 309 460 235 558 235"/>
-    <!-- núcleo -> MCPs -->
     <path id="m0" d="M722 235C790 235 790 136 858 136"/>
     <path id="m1" d="M722 235C790 235 790 184 858 184"/>
     <path id="m2" d="M722 235C790 235 790 232 858 232"/>
@@ -38,18 +30,10 @@
     <path id="m5" d="M722 235C790 235 790 376 858 376"/>
     <path id="m6" d="M722 235C790 235 790 424 858 424"/>
   </defs>
-
   <rect x="1" y="1" width="1278" height="558" rx="20" fill="#0B1222" stroke="#1E293B" stroke-width="2"/>
   <text x="40" y="54" class="sans" font-size="26" font-weight="700" fill="#F1F5F9">Como eu trabalho com IA</text>
   <text x="1240" y="54" class="mono" font-size="15" fill="#64748B" text-anchor="end">MCP · Model Context Protocol</text>
-
-  <g class="fio">
-    <use xlink:href="#l0"/><use xlink:href="#l1"/><use xlink:href="#l2"/>
-    <use xlink:href="#m0"/><use xlink:href="#m1"/><use xlink:href="#m2"/><use xlink:href="#m3"/>
-    <use xlink:href="#m4"/><use xlink:href="#m5"/><use xlink:href="#m6"/>
-  </g>
-
-  <!-- IDEs -->
+  <g class="fio"><use xlink:href="#l0"/><use xlink:href="#l1"/><use xlink:href="#l2"/><use xlink:href="#m0"/><use xlink:href="#m1"/><use xlink:href="#m2"/><use xlink:href="#m3"/><use xlink:href="#m4"/><use xlink:href="#m5"/><use xlink:href="#m6"/></g>
   <g class="sans ent e1">
     <text x="60" y="118" class="rot">IDES COM AGENTES</text>
     <rect x="60" y="132" width="300" height="58" rx="29" class="pill"/>
@@ -65,102 +49,80 @@
     <text x="90" y="314" font-size="13" font-weight="700" fill="#7DD3FC" text-anchor="middle">VS</text>
     <text x="118" y="305" class="n">VS Code</text><text x="118" y="326" class="s">Claude Code integrado</text>
   </g>
-
-  <!-- núcleo -->
   <g class="ent e2">
     <circle cx="640" cy="235" r="150" fill="url(#aura)"/>
     <circle cx="640" cy="235" r="112" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 7"/>
-    <g class="mov">
-      <g>
-        <circle cx="752" cy="235" r="7" fill="#22D3EE"/>
-        <circle cx="528" cy="235" r="7" fill="#A78BFA"/>
-        <circle cx="640" cy="123" r="7" fill="#34D399"/>
-        <circle cx="640" cy="347" r="7" fill="#FBBF24"/>
-        <animateTransform attributeName="transform" type="rotate" from="0 640 235" to="360 640 235" dur="24s" repeatCount="indefinite"/>
-      </g>
-    </g>
-    <circle cx="640" cy="235" r="82" fill="url(#nucleo)" stroke="#22D3EE" stroke-width="2">
-      <animate attributeName="stroke-opacity" values=".55;1;.55" dur="3.2s" repeatCount="indefinite"/>
-    </circle>
+    <g class="mov"><g><circle cx="752" cy="235" r="7" fill="#22D3EE"/><circle cx="528" cy="235" r="7" fill="#A78BFA"/><circle cx="640" cy="123" r="7" fill="#34D399"/><circle cx="640" cy="347" r="7" fill="#FBBF24"/><animateTransform attributeName="transform" type="rotate" from="0 640 235" to="360 640 235" dur="24s" repeatCount="indefinite"/></g></g>
+    <circle cx="640" cy="235" r="82" fill="url(#nucleo)" stroke="#22D3EE" stroke-width="2"><animate attributeName="stroke-opacity" values=".55;1;.55" dur="3.2s" repeatCount="indefinite"/></circle>
     <text x="640" y="232" class="sans" font-size="26" font-weight="800" fill="#F8FAFC" text-anchor="middle">Claude Code</text>
     <text x="640" y="258" class="sans" font-size="16" fill="#A5F3FC" text-anchor="middle">orquestrador</text>
     <text x="640" y="384" class="sans" font-size="16" fill="#94A3B8" text-anchor="middle">subagentes · skills · hooks · memória</text>
   </g>
-
-  <!-- servidores MCP -->
   <g class="sans ent e3">
     <text x="860" y="104" class="rot">SERVIDORES MCP</text>
-    <g class="n" font-size="17">
-      <rect x="860" y="116" width="380" height="40" rx="20" class="pill"/>
-      <circle cx="882" cy="136" r="7" fill="#E2E8F0"/><text x="900" y="142">GitHub</text>
-      <rect x="860" y="164" width="380" height="40" rx="20" class="pill"/>
-      <circle cx="882" cy="184" r="7" fill="#FBBF24"/><text x="900" y="190">Chrome DevTools</text>
-      <rect x="860" y="212" width="380" height="40" rx="20" class="pill"/>
-      <circle cx="882" cy="232" r="7" fill="#A78BFA"/><text x="900" y="238">Obsidian</text>
-      <rect x="860" y="260" width="380" height="40" rx="20" class="pill"/>
-      <circle cx="882" cy="280" r="7" fill="#22D3EE"/><text x="900" y="286">Graphify</text>
-      <rect x="860" y="308" width="380" height="40" rx="20" class="pill"/>
-      <circle cx="882" cy="328" r="7" fill="#F472B6"/><text x="900" y="334">Figma</text>
-      <rect x="860" y="356" width="380" height="40" rx="20" class="pill"/>
-      <circle cx="882" cy="376" r="7" fill="#818CF8"/><text x="900" y="382">Linear</text>
-      <rect x="860" y="404" width="380" height="40" rx="20" class="pill" style="stroke:#F87171;stroke-opacity:.5"/>
-      <circle cx="882" cy="424" r="7" fill="#F87171"/><text x="900" y="430">REA</text>
-    </g>
-    <g class="s" font-size="14.5" text-anchor="end">
-      <text x="1222" y="141">repos · PRs · issues</text>
-      <text x="1222" y="189">rede, console e telas</text>
-      <text x="1222" y="237">documentação viva · ADRs</text>
-      <text x="1222" y="285">grafo do código · impacto</text>
-      <text x="1222" y="333">design → código</text>
-      <text x="1222" y="381">tarefas · roadmap</text>
-      <text x="1222" y="429">engenharia reversa · descompilação</text>
-    </g>
+    <rect x="860" y="116" width="380" height="40" rx="20" class="pill"/>
+    <circle cx="882" cy="136" r="7" fill="#E2E8F0"/><text x="900" y="142" class="n" font-size="17">GitHub</text>
+    <text x="1222" y="141" class="s" font-size="14.5" text-anchor="end">repos · PRs · issues</text>
+    <rect x="860" y="164" width="380" height="40" rx="20" class="pill"/>
+    <circle cx="882" cy="184" r="7" fill="#FBBF24"/><text x="900" y="190" class="n" font-size="17">Chrome DevTools</text>
+    <text x="1222" y="189" class="s" font-size="14.5" text-anchor="end">rede, console e telas</text>
+    <rect x="860" y="212" width="380" height="40" rx="20" class="pill"/>
+    <circle cx="882" cy="232" r="7" fill="#A78BFA"/><text x="900" y="238" class="n" font-size="17">Obsidian</text>
+    <text x="1222" y="237" class="s" font-size="14.5" text-anchor="end">documentação viva · ADRs</text>
+    <rect x="860" y="260" width="380" height="40" rx="20" class="pill"/>
+    <circle cx="882" cy="280" r="7" fill="#22D3EE"/><text x="900" y="286" class="n" font-size="17">Graphify</text>
+    <text x="1222" y="285" class="s" font-size="14.5" text-anchor="end">grafo do código · impacto</text>
+    <rect x="860" y="308" width="380" height="40" rx="20" class="pill"/>
+    <circle cx="882" cy="328" r="7" fill="#F472B6"/><text x="900" y="334" class="n" font-size="17">Figma</text>
+    <text x="1222" y="333" class="s" font-size="14.5" text-anchor="end">design → código</text>
+    <rect x="860" y="356" width="380" height="40" rx="20" class="pill"/>
+    <circle cx="882" cy="376" r="7" fill="#818CF8"/><text x="900" y="382" class="n" font-size="17">Linear</text>
+    <text x="1222" y="381" class="s" font-size="14.5" text-anchor="end">tarefas · roadmap</text>
+    <rect x="860" y="404" width="380" height="40" rx="20" class="pill" style="stroke:#F87171;stroke-opacity:.5"/>
+    <circle cx="882" cy="424" r="7" fill="#F87171"/><text x="900" y="430" class="n" font-size="17">REA</text>
+    <text x="1222" y="429" class="s" font-size="14.5" text-anchor="end">engenharia reversa · descompilação</text>
   </g>
-
-  <!-- fluxo de entrega -->
   <g class="sans ent e4">
-    <text x="174" y="482" class="rot">FLUXO DE ENTREGA</text>
+    <text x="180" y="482" class="rot">FLUXO DE ENTREGA</text>
     <g fill="#0F172A" stroke="#1E293B" stroke-width="1.5">
-      <rect x="174" y="494" width="76" height="42" rx="11"/>
-      <rect x="290" y="494" width="76" height="42" rx="11"/>
-      <rect x="406" y="494" width="211" height="42" rx="11"/>
-      <rect x="657" y="494" width="186" height="42" rx="11"/>
-      <rect x="883" y="494" width="120" height="42" rx="11"/>
-      <rect x="1043" y="494" width="64" height="42" rx="11"/>
+      <rect x="180" y="494" width="64" height="42" rx="11"/>
+      <rect x="284" y="494" width="70" height="42" rx="11"/>
+      <rect x="394" y="494" width="213" height="42" rx="11"/>
+      <rect x="647" y="494" width="188" height="42" rx="11"/>
+      <rect x="875" y="494" width="120" height="42" rx="11"/>
+      <rect x="1035" y="494" width="64" height="42" rx="11"/>
     </g>
-    <rect class="mov" x="174" y="494" width="76" height="42" rx="11" fill="#22D3EE" fill-opacity=".12" stroke="#22D3EE" stroke-width="1.5">
-      <animate attributeName="x" values="174;290;406;657;883;1043" dur="7.2s" calcMode="discrete" repeatCount="indefinite"/>
-      <animate attributeName="width" values="76;76;211;186;120;64" dur="7.2s" calcMode="discrete" repeatCount="indefinite"/>
+    <rect class="mov" x="180" y="494" width="64" height="42" rx="11" fill="#22D3EE" fill-opacity=".12" stroke="#22D3EE" stroke-width="1.5">
+      <animate attributeName="x" values="180;284;394;647;875;1035" dur="7.2s" calcMode="discrete" repeatCount="indefinite"/>
+      <animate attributeName="width" values="64;70;213;188;120;64" dur="7.2s" calcMode="discrete" repeatCount="indefinite"/>
     </rect>
     <g font-size="16" fill="#E2E8F0" text-anchor="middle">
-      <text x="212" y="521">Spec</text>
-      <text x="328" y="521">Plano</text>
-      <text x="511.5" y="521">Subagentes em paralelo</text>
-      <text x="750" y="521">Revisão em 2 etapas</text>
-      <text x="943" y="521">Testes + CI</text>
-      <text x="1075" y="521">PR</text>
+      <text x="212.0" y="521">Spec</text>
+      <text x="319.0" y="521">Plano</text>
+      <text x="500.5" y="521">Subagentes em paralelo</text>
+      <text x="741.0" y="521">Revisão em 2 etapas</text>
+      <text x="935.0" y="521">Testes + CI</text>
+      <text x="1067.0" y="521">PR</text>
     </g>
     <g stroke="#475569" stroke-width="2" fill="none" stroke-linecap="round">
-      <path d="M257 515H283M277 510l6 5-6 5"/>
-      <path d="M373 515H399M393 510l6 5-6 5"/>
-      <path d="M624 515H650M644 510l6 5-6 5"/>
-      <path d="M850 515H876M870 510l6 5-6 5"/>
-      <path d="M1010 515H1036M1030 510l6 5-6 5"/>
+      <path d="M251 515H277M271 510l6 5-6 5"/>
+      <path d="M361 515H387M381 510l6 5-6 5"/>
+      <path d="M614 515H640M634 510l6 5-6 5"/>
+      <path d="M842 515H868M862 510l6 5-6 5"/>
+      <path d="M1002 515H1028M1022 510l6 5-6 5"/>
     </g>
   </g>
-
-  <!-- pacotes -->
   <g class="mov">
-    <use xlink:href="#pacote" fill="#34D399"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath xlink:href="#l0"/></animateMotion></use>
+    <use xlink:href="#pacote" fill="#34D399"><animateMotion dur="2.2s" begin="0s" repeatCount="indefinite"><mpath xlink:href="#l0"/></animateMotion></use>
     <use xlink:href="#pacote" fill="#60A5FA"><animateMotion dur="2.2s" begin=".7s" repeatCount="indefinite"><mpath xlink:href="#l1"/></animateMotion></use>
     <use xlink:href="#pacote" fill="#38BDF8"><animateMotion dur="2.2s" begin="1.4s" repeatCount="indefinite"><mpath xlink:href="#l2"/></animateMotion></use>
-    <use xlink:href="#pacote" fill="#E2E8F0"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath xlink:href="#m0"/></animateMotion></use>
-    <use xlink:href="#pacote" fill="#FBBF24"><animateMotion dur="2.4s" begin=".35s" repeatCount="indefinite"><mpath xlink:href="#m1"/></animateMotion></use>
-    <use xlink:href="#pacote" fill="#A78BFA"><animateMotion dur="2.4s" begin=".7s" repeatCount="indefinite"><mpath xlink:href="#m2"/></animateMotion></use>
+    <use xlink:href="#pacote" fill="#E2E8F0"><animateMotion dur="2.4s" begin="0.00s" repeatCount="indefinite"><mpath xlink:href="#m0"/></animateMotion></use>
+    <use xlink:href="#pacote" fill="#FBBF24"><animateMotion dur="2.4s" begin="0.35s" repeatCount="indefinite"><mpath xlink:href="#m1"/></animateMotion></use>
+    <use xlink:href="#pacote" fill="#A78BFA"><animateMotion dur="2.4s" begin="0.70s" repeatCount="indefinite"><mpath xlink:href="#m2"/></animateMotion></use>
     <use xlink:href="#pacote" fill="#22D3EE"><animateMotion dur="2.4s" begin="1.05s" repeatCount="indefinite"><mpath xlink:href="#m3"/></animateMotion></use>
-    <use xlink:href="#pacote" fill="#F472B6"><animateMotion dur="2.4s" begin="1.4s" repeatCount="indefinite"><mpath xlink:href="#m4"/></animateMotion></use>
+    <use xlink:href="#pacote" fill="#F472B6"><animateMotion dur="2.4s" begin="1.40s" repeatCount="indefinite"><mpath xlink:href="#m4"/></animateMotion></use>
     <use xlink:href="#pacote" fill="#818CF8"><animateMotion dur="2.4s" begin="1.75s" repeatCount="indefinite"><mpath xlink:href="#m5"/></animateMotion></use>
-    <use xlink:href="#pacote" fill="#F87171"><animateMotion dur="2.4s" begin="2.1s" repeatCount="indefinite"><mpath xlink:href="#m6"/></animateMotion></use>
+    <use xlink:href="#pacote" fill="#F87171"><animateMotion dur="2.4s" begin="2.10s" repeatCount="indefinite"><mpath xlink:href="#m6"/></animateMotion></use>
     <use xlink:href="#pacote" fill="#67E8F9"><animateMotion dur="3s" begin=".5s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath xlink:href="#m2"/></animateMotion></use>
     <use xlink:href="#pacote" fill="#67E8F9"><animateMotion dur="3s" begin="1.8s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath xlink:href="#m6"/></animateMotion></use>
   </g>

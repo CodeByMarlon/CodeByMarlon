@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="titulo desc">
-  <title id="titulo">Competências</title>
+  <title id="titulo">Áreas de atuação</title>
   <desc id="desc">Back-end Python com Django, DRF e Celery; tempo real e geodados; dados e ETL; DevOps e CI/CD; segurança e LGPD; IA aplicada com Claude Code, MCPs e agentes; métodos ágeis com XP e Scrum; engenharia reversa e descompilação.</desc>
   <style>
     .sans{font-family:'Segoe UI',Inter,'Helvetica Neue',Arial,sans-serif}

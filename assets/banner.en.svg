@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="titulo desc">
+  <title id="titulo">Marlon Betin · Software Engineer</title>
+  <desc id="desc">Animated banner: a transit map with moving buses, representing real-time public transit systems.</desc>
+  <style>
+    .sans{font-family:'Segoe UI',Inter,'Helvetica Neue',Arial,sans-serif}
+    .mono{font-family:'JetBrains Mono','Cascadia Code',Consolas,'SFMono-Regular',Menlo,monospace}
+    .rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+    .d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.3s}.d4{animation-delay:.42s}.d5{animation-delay:.56s}.d6{animation-delay:.7s}
+    @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    @media (prefers-reduced-motion:reduce){.rise{animation:none}.mov{display:none}}
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070B14"/><stop offset=".55" stop-color="#0B1222"/><stop offset="1" stop-color="#0E1A2F"/>
+    </linearGradient>
+    <radialGradient id="glowC" cx="76%" cy="48%" r="46%">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity=".2"/><stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowV" cx="6%" cy="100%" r="55%">
+      <stop offset="0" stop-color="#A78BFA" stop-opacity=".16"/><stop offset="1" stop-color="#A78BFA" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grade" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#1E293B" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" x2="1">
+      <stop offset=".38" stop-color="#fff" stop-opacity="0"/><stop offset=".8" stop-color="#fff" stop-opacity=".85"/>
+    </linearGradient>
+    <mask id="mascara"><rect width="1280" height="420" fill="url(#fade)"/></mask>
+    <linearGradient id="nome" x1="0" x2="1">
+      <stop offset="0" stop-color="#F8FAFC"/><stop offset=".55" stop-color="#E0F7FC"/><stop offset="1" stop-color="#67E8F9"/>
+    </linearGradient>
+    <clipPath id="cartao"><rect width="1280" height="420" rx="24"/></clipPath>
+    <filter id="blur" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="3.2"/></filter>
+    <filter id="blurLinha" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="5"/></filter>
+    <path id="r1" d="M660 350H770L870 250H1030L1120 160H1290"/>
+    <path id="r2" d="M700 60H860L920 120V440"/>
+    <path id="r3" d="M1290 330H1080L1000 250V-10"/>
+    <g id="onibus">
+      <circle r="11" fill-opacity=".3" filter="url(#blur)"/>
+      <rect x="-10" y="-5.5" width="20" height="11" rx="3.5"/>
+      <rect x="4" y="-3.5" width="4" height="7" rx="1.2" fill="#0B1222" fill-opacity=".55"/>
+    </g>
+  </defs>
+  <g clip-path="url(#cartao)">
+    <rect width="1280" height="420" fill="url(#bg)"/>
+    <rect width="1280" height="420" fill="url(#grade)" mask="url(#mascara)"/>
+    <rect width="1280" height="420" fill="url(#glowC)"/>
+    <rect width="1280" height="420" fill="url(#glowV)"/>
+    <g fill="none" stroke-linejoin="round" stroke-linecap="round">
+      <use xlink:href="#r1" stroke="#22D3EE" stroke-width="14" stroke-opacity=".18" filter="url(#blurLinha)"/>
+      <use xlink:href="#r2" stroke="#34D399" stroke-width="14" stroke-opacity=".16" filter="url(#blurLinha)"/>
+      <use xlink:href="#r3" stroke="#FBBF24" stroke-width="14" stroke-opacity=".14" filter="url(#blurLinha)"/>
+      <use xlink:href="#r1" stroke="#0B1222" stroke-width="11"/><use xlink:href="#r2" stroke="#0B1222" stroke-width="11"/>
+      <use xlink:href="#r3" stroke="#0B1222" stroke-width="11"/>
+      <use xlink:href="#r1" stroke="#22D3EE" stroke-width="5"/><use xlink:href="#r2" stroke="#34D399" stroke-width="5"/>
+      <use xlink:href="#r3" stroke="#FBBF24" stroke-width="5"/>
+    </g>
+    <g fill="#0B1222" stroke-width="3">
+      <g stroke="#22D3EE"><circle cx="700" cy="350" r="5.5"/><circle cx="820" cy="300" r="5.5"/><circle cx="1075" cy="205" r="5.5"/><circle cx="1200" cy="160" r="5.5"/></g>
+      <g stroke="#34D399"><circle cx="760" cy="60" r="5.5"/><circle cx="920" cy="180" r="5.5"/><circle cx="920" cy="330" r="5.5"/><circle cx="920" cy="400" r="5.5"/></g>
+      <g stroke="#FBBF24"><circle cx="1210" cy="330" r="5.5"/><circle cx="1120" cy="330" r="5.5"/><circle cx="1040" cy="290" r="5.5"/><circle cx="1000" cy="170" r="5.5"/><circle cx="1000" cy="90" r="5.5"/></g>
+    </g>
+    <g class="mov" fill="none" stroke="#F8FAFC" stroke-width="2">
+      <circle cx="920" cy="250" r="9"><animate attributeName="r" values="9;28" dur="2.8s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".55;0" dur="2.8s" repeatCount="indefinite"/></circle>
+      <circle cx="1000" cy="250" r="9"><animate attributeName="r" values="9;28" dur="2.8s" begin="1.4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".55;0" dur="2.8s" begin="1.4s" repeatCount="indefinite"/></circle>
+    </g>
+    <g fill="#F8FAFC" stroke="#0B1222" stroke-width="3"><circle cx="920" cy="250" r="9"/><circle cx="1000" cy="250" r="9"/></g>
+    <g class="mov">
+      <use xlink:href="#onibus" fill="#22D3EE"><animateMotion dur="16s" repeatCount="indefinite" rotate="auto"><mpath xlink:href="#r1"/></animateMotion></use>
+      <use xlink:href="#onibus" fill="#22D3EE"><animateMotion dur="16s" begin="-8s" repeatCount="indefinite" rotate="auto"><mpath xlink:href="#r1"/></animateMotion></use>
+      <use xlink:href="#onibus" fill="#67E8F9"><animateMotion dur="18s" begin="-4s" keyPoints="1;0" keyTimes="0;1" calcMode="linear" repeatCount="indefinite" rotate="auto-reverse"><mpath xlink:href="#r1"/></animateMotion></use>
+      <use xlink:href="#onibus" fill="#34D399"><animateMotion dur="13s" repeatCount="indefinite" rotate="auto"><mpath xlink:href="#r2"/></animateMotion></use>
+      <use xlink:href="#onibus" fill="#6EE7B7"><animateMotion dur="14s" begin="-6.5s" keyPoints="1;0" keyTimes="0;1" calcMode="linear" repeatCount="indefinite" rotate="auto-reverse"><mpath xlink:href="#r2"/></animateMotion></use>
+      <use xlink:href="#onibus" fill="#FBBF24"><animateMotion dur="14s" begin="-2s" repeatCount="indefinite" rotate="auto"><mpath xlink:href="#r3"/></animateMotion></use>
+      <use xlink:href="#onibus" fill="#FCD34D"><animateMotion dur="15s" begin="-9s" keyPoints="1;0" keyTimes="0;1" calcMode="linear" repeatCount="indefinite" rotate="auto-reverse"><mpath xlink:href="#r3"/></animateMotion></use>
+    </g>
+    <g class="rise d6">
+      <rect x="1044" y="24" width="212" height="40" rx="20" fill="#0B1222" fill-opacity=".85" stroke="#334155"/>
+      <circle cx="1068" cy="44" r="6" fill="#F87171"><animate attributeName="fill-opacity" values="1;.25;1" dur="1.6s" repeatCount="indefinite"/></circle>
+      <text x="1084" y="50" class="mono" font-size="16" fill="#E2E8F0">LIVE · telemetry</text>
+    </g>
+    <g class="rise d1">
+      <rect x="72" y="62" width="191" height="40" rx="20" fill="#052E2B" stroke="#10B981" stroke-opacity=".6"/>
+      <circle cx="94" cy="82" r="6" fill="#34D399"/>
+      <circle class="mov" cx="94" cy="82" r="6" fill="none" stroke="#34D399" stroke-width="2"><animate attributeName="r" values="6;15" dur="2s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".8;0" dur="2s" repeatCount="indefinite"/></circle>
+      <text x="112" y="88" class="sans" font-size="15" font-weight="700" fill="#6EE7B7" letter-spacing="1.2">OPEN TO WORK</text>
+    </g>
+    <text x="68" y="182" class="sans rise d2" font-size="78" font-weight="800" fill="url(#nome)" letter-spacing="-1.5">Marlon Betin</text>
+    <text x="72" y="234" class="sans rise d3" font-size="34" font-weight="600" fill="#E2E8F0">Software Engineer</text>
+    <text x="72" y="272" class="sans rise d3" font-size="22" fill="#94A3B8">Full Stack · Python &amp; Django · Applied AI</text>
+    <g class="sans rise d4" font-size="17" fill="#CBD5E1" text-anchor="middle">
+      <rect x="72" y="300" width="134" height="38" rx="19" fill="#0F172A" stroke="#334155"/>
+      <text x="139.0" y="325">AMEP · DTIM</text>
+      <rect x="218" y="300" width="181" height="38" rx="19" fill="#0F172A" stroke="#334155"/>
+      <text x="308.5" y="325">Curitiba, Brazil</text>
+      <rect x="411" y="300" width="190" height="38" rx="19" fill="#0F172A" stroke="#334155"/>
+      <text x="506.0" y="325">Claude Code + MCP</text>
+    </g>
+    <text x="72" y="388" class="mono rise d5" font-size="18" fill="#64748B">codebymarlon.vercel.app ↗</text>
+  </g>
+  <rect x="1" y="1" width="1278" height="418" rx="23" fill="none" stroke="#1E293B" stroke-width="2"/>
+</svg>

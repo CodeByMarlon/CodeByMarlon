@@ -1,8 +1,10 @@
 <!--
-  README do perfil · Marlon Betin (CodeByMarlon)
+  README do perfil · Marlon Betin (CodeByMarlon) · versões: README.md (pt), README.en.md, README.de.md
   Visuais próprios em ./assets (SVG animados, leves e sem serviço externo).
-  assets/contribuicoes.svg é refeito todo dia por .github/workflows/contribuicoes.yml.
+  Calendários e cobrinha são refeitos todo dia por .github/workflows/contribuicoes.yml.
 -->
+
+<p align="right"><a href="https://github.com/CodeByMarlon"><img src="https://img.shields.io/badge/Portugu%C3%AAs-22D3EE?style=flat-square" alt="Português" title="Português" /></a> <a href="https://github.com/CodeByMarlon/CodeByMarlon/blob/main/README.en.md"><img src="https://img.shields.io/badge/English-1E293B?style=flat-square" alt="English" title="English" /></a> <a href="https://github.com/CodeByMarlon/CodeByMarlon/blob/main/README.de.md"><img src="https://img.shields.io/badge/Deutsch-1E293B?style=flat-square" alt="Deutsch" title="Deutsch" /></a></p>
 
 <div align="center">
 
@@ -41,30 +43,22 @@
 
 <a name="sobre"></a>
 
-## 👨‍💻 Sobre mim
+## <a href="#sobre"><img src="./assets/icones/usuario.svg" width="28" height="28" align="absmiddle" alt="" /></a> Sobre mim
 
 Sou **Engenheiro de Software na [AMEP](https://www.amep.pr.gov.br/)** (Agência de Assuntos Metropolitanos do Paraná), na Diretoria de Transporte (DTIM). Desenvolvo, de ponta a ponta, sistemas que apoiam a gestão, a fiscalização e o monitoramento **em tempo real** do transporte público da Região Metropolitana de Curitiba.
 
 Cheguei à tecnologia vindo da **saúde**. Como técnico de enfermagem, trabalhei em ambientes críticos, onde aprendi a decidir sob pressão, seguir protocolos à risca e não deixar nenhum detalhe passar. Hoje levo esse cuidado para sistemas que não podem parar.
 
-- 🏗️ **Ponta a ponta:** modelagem de dados, APIs, integrações, front-end, CI/CD e operação em produção
-- 🛰️ **Tempo real e geodados:** telemetria de frota, mapas ao vivo, roteamento e painéis de controle operacional
-- 🔁 **DevOps e agilidade:** pipelines de CI/CD e práticas de XP e Scrum, implantadas junto com a equipe
-- 🤖 **IA com método:** Claude Code orquestrando subagentes e servidores MCP, TRAE e Antigravity, sempre com testes e revisão
-- 🎓 **Formação:** Engenharia de Software na UNICURITIBA (em andamento)
-- 🎯 **Procuro:** oportunidades em Engenharia de Software, Back-end/Plataforma e Full Stack
-
-<details>
-<summary><b>🌎 English summary</b></summary>
-<br>
-
-**Software Engineer** at AMEP (Paraná Metropolitan Affairs Agency), Transportation Directorate (DTIM), since November 2025. I build and run, end to end, the web systems that support the management, inspection and real-time monitoring of Greater Curitiba's metropolitan public transit: fleet telemetry and live maps, an operations-center videowall, a trip planner with its own routing engine, data integrations and an AI data assistant. Together with the team, I helped introduce DevOps practices (CI/CD pipelines, automated tests, staging and automated deploys) and agile methods (XP and Scrum) at the institution for the first time. Stack: Python, Django, PostgreSQL, Redis, Celery, Docker, GitHub Actions and Leaflet. AI-assisted engineering with Claude Code, MCP servers, TRAE and Antigravity. Former nursing technician, used to critical environments. **Open to Software Engineering, Back-end/Platform and Full Stack roles.**
-
-</details>
+- **Ponta a ponta:** modelagem de dados, APIs, integrações, front-end, CI/CD e operação em produção
+- **Tempo real e geodados:** telemetria de frota, mapas ao vivo, roteamento e painéis de controle operacional
+- **DevOps e agilidade:** pipelines de CI/CD e práticas de XP e Scrum, implantadas junto com a equipe
+- **IA com método:** Claude Code orquestrando subagentes e servidores MCP, TRAE e Antigravity, sempre com testes e revisão
+- **Formação:** Engenharia de Software na UNICURITIBA (em andamento)
+- **Procuro:** oportunidades em Engenharia de Software, Back-end/Plataforma e Full Stack
 
 <a name="competencias"></a>
 
-## 🧭 Competências
+## <a href="#competencias"><img src="./assets/icones/competencias.svg" width="28" height="28" align="absmiddle" alt="" /></a> Competências
 
 <img src="./assets/competencias.svg" width="100%" alt="Competências: back-end Python com Django, DRF e Celery; tempo real e geodados; dados e ETL; DevOps e CI/CD; segurança e LGPD; IA aplicada com Claude Code, MCPs e agentes; métodos ágeis com XP e Scrum; engenharia reversa e descompilação." />
 
@@ -72,7 +66,7 @@ Cheguei à tecnologia vindo da **saúde**. Como técnico de enfermagem, trabalhe
 
 <a name="experiencia"></a>
 
-## 💼 Experiência
+## <a href="#experiencia"><img src="./assets/icones/experiencia.svg" width="28" height="28" align="absmiddle" alt="" /></a> Experiência
 
 ### Engenheiro de Software · AMEP, Diretoria de Transporte (DTIM)
 
@@ -87,7 +81,7 @@ Atuo no desenvolvimento e na evolução da plataforma web da diretoria, que apoi
 <tr>
 <td width="50%" valign="top">
 
-#### 🛰️ Monitoramento em tempo real
+#### <a href="#experiencia"><img src="./assets/icones/monitoramento.svg" width="22" height="22" align="absmiddle" alt="" /></a> Monitoramento em tempo real
 Telemetria da frota com mapas ao vivo, previsão de chegada por parada e detecção de excesso de velocidade, além de um painel de videowall para o centro de controle operacional, com alertas acessíveis.
 
 `Django` `Leaflet` `JavaScript` `Redis` `Celery`
@@ -95,7 +89,7 @@ Telemetria da frota com mapas ao vivo, previsão de chegada por parada e detecç
 </td>
 <td width="50%" valign="top">
 
-#### 🧭 Planejamento de viagens
+#### <a href="#experiencia"><img src="./assets/icones/rota.svg" width="22" height="22" align="absmiddle" alt="" /></a> Planejamento de viagens
 Roteador próprio com integrações entre linhas, caminhada real pelo OpenStreetMap, tarifas e chegada do ônibus ao vivo, validado contra o Google Maps.
 
 `Algoritmos de roteamento` `OpenStreetMap` `OSRM`
@@ -105,7 +99,7 @@ Roteador próprio com integrações entre linhas, caminhada real pelo OpenStreet
 <tr>
 <td width="50%" valign="top">
 
-#### 🔗 Integração de dados
+#### <a href="#experiencia"><img src="./assets/icones/dados.svg" width="22" height="22" align="absmiddle" alt="" /></a> Integração de dados
 Consumo de APIs e feeds externos de mobilidade, clima e mapas, ETLs com simulação e reversão, cache em camadas e rotinas agendadas com monitoramento.
 
 `ETL` `pandas` `Polars` `Celery Beat`
@@ -113,7 +107,7 @@ Consumo de APIs e feeds externos de mobilidade, clima e mapas, ETLs com simulaç
 </td>
 <td width="50%" valign="top">
 
-#### 🚌 Gestão e auditoria da frota
+#### <a href="#experiencia"><img src="./assets/icones/frota.svg" width="22" height="22" align="absmiddle" alt="" /></a> Gestão e auditoria da frota
 Vistorias de campo integradas a formulários móveis, acompanhamento da vida útil da frota e auditoria de quilometragem com validação por GPS e relatórios em Excel e PDF.
 
 `PostgreSQL` `Webhooks` `openpyxl` `ReportLab`
@@ -123,7 +117,7 @@ Vistorias de campo integradas a formulários móveis, acompanhamento da vida út
 <tr>
 <td width="50%" valign="top">
 
-#### 🤖 Assistente de dados com IA
+#### <a href="#experiencia"><img src="./assets/icones/assistente.svg" width="22" height="22" align="absmiddle" alt="" /></a> Assistente de dados com IA
 Perguntas em linguagem natural respondidas com segurança: a IA gera uma intenção estruturada, executada em modo somente leitura e com trilha de auditoria.
 
 `LLMs` `Hugging Face` `Gemini` `LGPD`
@@ -131,7 +125,7 @@ Perguntas em linguagem natural respondidas com segurança: a IA gera uma intenç
 </td>
 <td width="50%" valign="top">
 
-#### 🛡️ Segurança e privacidade
+#### <a href="#experiencia"><img src="./assets/icones/seguranca.svg" width="22" height="22" align="absmiddle" alt="" /></a> Segurança e privacidade
 Controle de acesso por papéis, autenticação em dois fatores, criptografia de dados pessoais, política de segurança de conteúdo e trilhas de auditoria.
 
 `RBAC` `2FA` `Criptografia` `LGPD`
@@ -144,7 +138,7 @@ Controle de acesso por papéis, autenticação em dois fatores, criptografia de 
 
 <a name="devops"></a>
 
-## 🔁 DevOps, CI/CD e métodos ágeis
+## <a href="#devops"><img src="./assets/icones/devops.svg" width="28" height="28" align="absmiddle" alt="" /></a> DevOps, CI/CD e métodos ágeis
 
 Desde a minha chegada à AMEP, em novembro de 2025, tive a oportunidade de propor e implantar, pela primeira vez na instituição, práticas de engenharia DevOps e de desenvolvimento ágil. Foi um trabalho construído em conjunto com a equipe e com o apoio da gestão, adaptado passo a passo à realidade do setor público, com um objetivo simples: entregar com mais segurança, qualidade e previsibilidade.
 
@@ -160,7 +154,7 @@ Desde a minha chegada à AMEP, em novembro de 2025, tive a oportunidade de propo
 
 <a name="stack"></a>
 
-## 🧰 Stack técnica
+## <a href="#stack"><img src="./assets/icones/stack.svg" width="28" height="28" align="absmiddle" alt="" /></a> Stack técnica
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=py,django,js,html,css,bootstrap,postgres,redis,docker,nginx,linux,githubactions,git,bash,figma,obsidian&theme=dark&perline=16" alt="Python, Django, JavaScript, HTML, CSS, Bootstrap, PostgreSQL, Redis, Docker, Nginx, Linux, GitHub Actions, Git, Bash, Figma e Obsidian" />
@@ -184,7 +178,7 @@ Desde a minha chegada à AMEP, em novembro de 2025, tive a oportunidade de propo
 
 <a name="ia"></a>
 
-## 🤖 IA aplicada, MCPs e orquestração
+## <a href="#ia"><img src="./assets/icones/ia.svg" width="28" height="28" align="absmiddle" alt="" /></a> IA aplicada, MCPs e orquestração
 
 Uso IA como **parte do processo de engenharia**, não como atalho: especificação, plano, execução com subagentes, revisão em duas etapas, testes e pull request. Tudo o que a IA produz passa por CI, testes e revisão antes de ir para produção.
 
@@ -209,7 +203,7 @@ Uso IA como **parte do processo de engenharia**, não como atalho: especificaç�
 
 <a name="atividade"></a>
 
-## 📊 Atividade no GitHub
+## <a href="#atividade"><img src="./assets/icones/atividade.svg" width="28" height="28" align="absmiddle" alt="" /></a> Atividade no GitHub
 
 <img src="./assets/contribuicoes.svg" width="100%" alt="Calendário de contribuições do último ano, incluindo repositórios privados, atualizado todos os dias." />
 
@@ -217,9 +211,16 @@ Uso IA como **parte do processo de engenharia**, não como atalho: especificaç�
   <img src="https://streak-stats.demolab.com?user=CodeByMarlon&mode=weekly&locale=pt_BR&background=0B1222&border=1E293B&stroke=1E293B&ring=22D3EE&fire=FBBF24&currStreakNum=F1F5F9&sideNums=F1F5F9&currStreakLabel=22D3EE&sideLabels=94A3B8&dates=64748B&border_radius=20" alt="Sequência semanal de contribuições no GitHub" title="Semanas seguidas com contribuição" />
 </p>
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/CodeByMarlon/CodeByMarlon/output/cobrinha-escura.svg" />
+    <img src="https://raw.githubusercontent.com/CodeByMarlon/CodeByMarlon/output/cobrinha-clara.svg" width="100%" alt="Cobrinha percorrendo o calendário de contribuições do último ano" />
+  </picture>
+</p>
+
 <a name="contato"></a>
 
-## 🤝 Vamos conversar?
+## <a href="#contato"><img src="./assets/icones/contato.svg" width="28" height="28" align="absmiddle" alt="" /></a> Vamos conversar?
 
 Estou **aberto a oportunidades** em Engenharia de Software, Back-end/Plataforma e Full Stack. Se você procura alguém que leva sistemas para produção com testes, segurança e documentação, que gosta de trabalhar em equipe e usa IA com método, vamos conversar.
 
