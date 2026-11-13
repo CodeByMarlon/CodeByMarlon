@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="28" viewBox="0 0 1280 28" role="img" aria-label="Divisor de seção">
+  <style>@media (prefers-reduced-motion:reduce){.mov{display:none}}</style>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0"/>
+      <stop offset=".2" stop-color="#22D3EE" stop-opacity=".85"/>
+      <stop offset=".8" stop-color="#A78BFA" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#A78BFA" stop-opacity="0"/>
+    </linearGradient>
+    <path id="p" d="M40 14H1240"/>
+    <filter id="b" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="2.5"/></filter>
+  </defs>
+  <rect x="40" y="13" width="1200" height="2" rx="1" fill="url(#g)"/>
+  <g fill="#0B1222" stroke-width="2.5">
+    <circle cx="340" cy="14" r="5" stroke="#22D3EE"/>
+    <circle cx="640" cy="14" r="5" stroke="#67E8F9"/>
+    <circle cx="940" cy="14" r="5" stroke="#A78BFA"/>
+  </g>
+  <g class="mov">
+    <circle r="7" fill="#67E8F9" fill-opacity=".8" filter="url(#b)"/>
+    <circle r="3.5" fill="#F0FDFF"/>
+    <animateMotion dur="7s" repeatCount="indefinite"><mpath xlink:href="#p"/></animateMotion>
+  </g>
+</svg>
