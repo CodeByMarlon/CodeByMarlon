@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="326" viewBox="0 0 1280 326" role="img" aria-labelledby="titulo desc">
-  <title id="titulo">1,482 contributions in the last year</title>
-  <desc id="desc">Contribution calendar for CodeByMarlon: 1,482 in the last year, 217 active days, 40 weeks in a row with contributions (record: 40) and a best day of 29. Includes private repositories. Data through Nov 20, 2026.</desc>
+  <title id="titulo">1,492 contributions in the last year</title>
+  <desc id="desc">Contribution calendar for CodeByMarlon: 1,492 in the last year, 219 active days, 40 weeks in a row with contributions (record: 40) and a best day of 29. Includes private repositories. Data through Nov 21, 2026.</desc>
   <style>
     .sans{font-family:'Segoe UI',Inter,'Helvetica Neue',Arial,sans-serif}
     .sem{animation:ent .6s ease-out both}
@@ -9,11 +9,11 @@
   </style>
   <rect x="1" y="1" width="1278" height="324" rx="20" fill="#0B1222" stroke="#1E293B" stroke-width="2"/>
   <g class="sans">
-    <text x="40" y="54" font-size="26" font-weight="700" fill="#F1F5F9">1,482 contributions in the last year</text>
-    <text x="40" y="84" font-size="16" fill="#64748B">includes contributions to private repositories · data through Nov 20, 2026</text>
+    <text x="40" y="54" font-size="26" font-weight="700" fill="#F1F5F9">1,492 contributions in the last year</text>
+    <text x="40" y="84" font-size="16" fill="#64748B">includes contributions to private repositories · data through Nov 21, 2026</text>
     <text x="905" y="52" font-size="30" font-weight="800" fill="#A78BFA" text-anchor="end">29</text>
     <text x="905" y="76" font-size="15" fill="#94A3B8" text-anchor="end">best single day</text>
-    <text x="1075" y="52" font-size="30" font-weight="800" fill="#34D399" text-anchor="end">217</text>
+    <text x="1075" y="52" font-size="30" font-weight="800" fill="#34D399" text-anchor="end">219</text>
     <text x="1075" y="76" font-size="15" fill="#94A3B8" text-anchor="end">active days</text>
     <text x="1240" y="52" font-size="30" font-weight="800" fill="#22D3EE" text-anchor="end">40</text>
     <text x="1240" y="76" font-size="15" fill="#94A3B8" text-anchor="end">weeks in a row</text>
@@ -507,9 +507,10 @@
     <rect x="1200" y="170" width="17" height="17" rx="4" fill="#67E8F9"/>
     <rect x="1200" y="191" width="17" height="17" rx="4" fill="#0E7490"/>
     <rect x="1200" y="212" width="17" height="17" rx="4" fill="#06B6D4"/>
-    <rect x="1200" y="233" width="17" height="17" rx="4" fill="#162036"/>
+    <rect x="1200" y="233" width="17" height="17" rx="4" fill="#0B4F5E"/>
+    <rect x="1200" y="254" width="17" height="17" rx="4" fill="#0B4F5E"/>
   </g>
-  <rect class="mov" x="1198" y="231" width="21" height="21" rx="5" fill="none" stroke="#F8FAFC" stroke-width="1.5">
+  <rect class="mov" x="1198" y="252" width="21" height="21" rx="5" fill="none" stroke="#F8FAFC" stroke-width="1.5">
     <animate attributeName="stroke-opacity" values=".9;.1;.9" dur="2s" repeatCount="indefinite"/>
   </rect>
   <g class="sans" font-size="14" fill="#64748B">
